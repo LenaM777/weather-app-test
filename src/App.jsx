@@ -25,6 +25,9 @@ const App = () => {
     <div className="app">
       <h1>Weather</h1>
       <SearchBar onSearch={handleSearch} />
+
+      {isLoading && <p>Loading...</p>}
+      {error && <p>Error: {error}</p>}
     </div>
   );
 };
