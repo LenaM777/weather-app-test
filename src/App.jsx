@@ -28,7 +28,7 @@ const App = () => {
     <div className="app">
       <h1>Weather</h1>
       <SearchBar onSearch={handleSearch} />
-      <WeatherDisplay />
+      <WeatherDisplay data={weatherData} />
     </div>
   );
 };
