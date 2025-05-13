@@ -28,7 +28,13 @@ const App = () => {
     <div className="app">
       <h1>Weather</h1>
       <SearchBar onSearch={handleSearch} />
-      <WeatherDisplay data={weatherData} />
+      {isLoading && <p>Loading...</p>}
+
+      {error && <p>{error}</p>}
+
+      {weatherData && !isLoading && !error && (
+        <WeatherDisplay data={weatherData} />
+      )}
     </div>
   );
 };
