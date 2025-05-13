@@ -3,6 +3,10 @@ import SearchBar from "./components/SearchBar/SearchBar";
 import "./App.css";
 
 const App = () => {
+  const [weatherData, setWeatherData] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+
   const handleSearch = (city) => {
     console.log("Searching for city:", city);
   };
