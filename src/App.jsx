@@ -9,16 +9,18 @@ const App = () => {
   const [error, setError] = useState(null);
 
   const handleSearch = async (city) => {
-    console.log("Searching for city:", city);
-
     setIsLoading(true);
     setError(null);
     setWeatherData(null);
 
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    // setWeatherData({ name: city, main: { temp: 20, humidity: 60, feels_like: 19 }, weather: [{ description: 'clear sky', icon: '01d' }], sys: { country: 'EX' } });
-    setError(`Failed to fetch weather for ${city}.`);
-    setIsLoading(false);
+    try {
+      const data = await fetchWeatherData(city);
+      setWeatherData(data);
+    } catch (err) {
+      setError(err.message || "An unknown error occurred.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
