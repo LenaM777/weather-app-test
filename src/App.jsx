@@ -1,5 +1,6 @@
 import { React, useState } from "react";
 import SearchBar from "./components/SearchBar/SearchBar";
+import WeatherDisplay from "./components/WeatherDisplay/WeatherDisplay";
 import { fetchWeatherData } from "./services/weatherService";
 import "./App.css";
 
@@ -27,9 +28,7 @@ const App = () => {
     <div className="app">
       <h1>Weather</h1>
       <SearchBar onSearch={handleSearch} />
-
-      {isLoading && <p>Loading...</p>}
-      {error && <p>Error: {error}</p>}
+      <WeatherDisplay />
     </div>
   );
 };
