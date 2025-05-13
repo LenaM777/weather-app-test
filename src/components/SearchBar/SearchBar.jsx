@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function SearchBar() {
+function SearchBar({ onSearch }) {
   const [city, setCity] = useState("");
 
   function handleChange(event) {
@@ -13,7 +13,7 @@ function SearchBar() {
       onSearch(city.trim());
       setCity("");
     } else {
-      alert("Please enter a city name.");
+      alert("Please enter a city name");
     }
   };
 
